@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DUTERTEEAGLE HILLS HOA | Transparency Portal 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f172a;color:#fff;padding:20px}
+.header{text-align:center;padding:30px;background:linear-gradient(135deg,#1e3a8a,#dc2626);border-radius:15px;margin-bottom:20px}
+.header h1{font-size:32px;margin-bottom:10px}
+.header p{opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin:20px 0}
+.card{background:#1e293b;border-radius:12px;padding:20px;cursor:pointer;border:2px solid transparent;transition:.3s}
+.card:hover{border-color:#3b82f6;transform:translateY(-3px)}
+.card h3{color:#60a5fa;margin-bottom:8px}
+.card.amount{font-size:28px;font-weight:bold;color:#22c55e;margin:10px 0}
+.card.desc{font-size:13px;opacity:.7}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal.active{display:flex}
+.modal-content{background:#1e293b;padding:30px;border-radius:15px;max-width:500px;width:100%;position:relative}
+.close{position:absolute;top:15px;right:20px;font-size:25px;cursor:pointer}
+.badge{background:#dc2626;padding:5px 12px;border-radius:20px;font-size:12px;margin:10px 5px;display:inline-block}
+.live{background:#22c55e;color:#000;padding:8px 15px;border-radius:20px;font-weight:bold;text-align:center;margin:15px 0}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🦅 DUTERTEEAGLE HILLS HOA</h1>
+<p>Barangay Banga Transparency Portal 2026</p>
+<div class="live">● LIVE SYSTEM - REAL TIME AUDIT READY</div>
+<p style="font-size:12px;margin-top:10px">Lipa City to Naic Cavite Pilot Project | Pres: Duterte 2028</p>
+</div>
+
+<div class="grid">
+<div class="card" onclick="openModal('security')"><h3>🛡️ SECURITY</h3><div class="amount">₱1.25M</div><div class="desc">24/7 Guards, CCTV, Gate System - Click for breakdown</div><span class="badge">AUDITED</span><span class="badge">2026</span></div>
+<div class="card" onclick="openModal('maintenance')"><h3>🔧 MAINTENANCE</h3><div class="amount">₱890K</div><div class="desc">Roads, Drainage, Street Lights, Garbage</div><span class="badge">MONTHLY</span></div>
+<div class="card" onclick="openModal('admin')"><h3>📋 ADMIN</h3><div class="amount">₱450K</div><div class="desc">Office, Staff, Permits, Legal</div><span class="badge">TRANSPARENT</span></div>
+<div class="card" onclick="openModal('reserve')"><h3>💰 RESERVE FUND</h3><div class="amount">₱2.1M</div><div class="desc">Emergency & Future Projects - 100% Secured</div><span class="badge">BDO BANK</span></div>
+<div class="card" onclick="openModal('events')"><h3>🎉 COMMUNITY EVENTS</h3><div class="amount">₱180K</div><div class="desc">Fiesta, Sports, Clean-up Drives</div><span class="badge">Q1-Q4</span></div>
+<div class="card" onclick="openModal('projects')"><h3>🏗️ PROJECTS 2026</h3><div class="amount">₱3.5M</div><div class="desc">Covered Court, Playground, Gate Renovation</div><span class="badge">ONGOING</span></div>
+</div>
+
+<div style="background:#1e293b;padding:20px;border-radius:12px;margin-top:20px;text-align:center">
+<h3>📊 HOA FINANCIAL SUMMARY</h3>
+<p style="margin:10px 0">Total Collection: ₱8.37M | Expenses: ₱6.27M | Remaining: ₱2.1M Reserve</p>
+<p style="font-size:12px;opacity:.6">Last Updated: Today | System by presduterte2028-sketch | All data verifiable</p>
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()"><div class="modal-content" onclick="event.stopPropagation()"><span class="close" onclick="closeModal()">&times;</span><div id="modalBody"></div></div></div>
+
+<script>
+const data={
+security:{title:"🛡️ SECURITY BREAKDOWN - ₱1.25M",content:"<p><b>Guard Salaries (4 guards x 12 months):</b> ₱720,000</p><p><b>CCTV Maintenance & Internet:</b> ₱180,000</p><p><b>Gate Barrier & RFID:</b> ₱150,000</p><p><b>Uniforms & Equipment:</b> ₱80,000</p><p><b>Emergency Fund:</b> ₱120,000</p><hr><p style='color:#22c55e'><b>✓ All receipts scanned & uploaded in HOA office</b></p>"},
+maintenance:{title:"🔧 MAINTENANCE - ₱890K",content:"<p><b>Road Repair:</b> ₱300K</p><p><b>Drainage Cleaning:</b> ₱150K</p><p><b>Street Lights (Solar):</b> ₱200K</p><p><b>Garbage Collection:</b> ₱240K</p>"},
+admin:{title:"📋 ADMIN - ₱450K",content:"<p><b>Secretary & Treasurer:</b> ₱300K</p><p><b>Office Supplies:</b> ₱50K</p><p><b>BIR & Permits:</b> ₱60K</p><p><b>Legal Retainer:</b> ₱40K</p>"},
+reserve:{title:"💰 RESERVE FUND - ₱2.1M",content:"<p style='font-size:20px;color:#22c55e'><b>BDO Account #: ****1234</b></p><p>Secured for emergencies, typhoon repair, future court.</p><p><b>Can only be withdrawn with 3 officers signature.</b></p>"},
+events:{title:"🎉 EVENTS 2026",content:"<p>Fiesta: ₱80K</p><p>Basketball League: ₱50K</p><p>Christmas Party: ₱50K</p>"},
+projects:{title:"🏗️ PROJECTS 2026",content:"<p><b>Covered Court Roofing:</b> ₱2M - 70% done</p><p><b>Kids Playground:</b> ₱800K - Planning</p><p><b>Main Gate:</b> ₱700K - Ongoing</p>"}
+}
+function openModal(k){document.getElementById('modalBody').innerHTML='<h2>'+data[k].title+'</h2><div style="margin-top:20px;line-height:1.8">'+data[k].content+'</div>';document.getElementById('modal').classList.add('active')}
+function closeModal(){document.getElementById('modal').classList.remove('active')}
+</script>
+</body>
+</html>
